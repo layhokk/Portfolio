@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lay Hok Houn – IT & Security Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1f7;--surface:#ffffff;--ink:#12162b;--muted:#5a6180;--line:#d5daea;
+  --accent:#3b4bff;--accent-ink:#ffffff;--warm:#ff9d4d;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c0f20;--surface:#151a33;--ink:#eceffd;--muted:#9aa2c8;--line:#262d54;
+  --accent:#7b88ff;--accent-ink:#0c0f20;--warm:#ffb272;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c0f20;--surface:#151a33;--ink:#eceffd;--muted:#9aa2c8;--line:#262d54;
+  --accent:#7b88ff;--accent-ink:#0c0f20;--warm:#ffb272;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--display);font-weight:800;text-decoration:none;font-size:1.2rem}
+.nav nav{display:flex;gap:1.4rem;align-items:center}
+.nav nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+.nav nav a:hover{color:var(--ink)}
+#theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}
+@media(max-width:620px){.nav nav a{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(4rem,11vw,8rem) 0 clamp(3rem,8vw,6rem);
+  --mx:70%;--my:30%}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(520px circle at var(--mx) var(--my),color-mix(in srgb,var(--accent) 34%,transparent),transparent 70%),
+             radial-gradient(380px circle at calc(var(--mx) - 22%) calc(var(--my) + 28%),color-mix(in srgb,var(--warm) 26%,transparent),transparent 70%)}
+.hero .wrap{position:relative}
+.status{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem .9rem;border:1px solid var(--line);background:var(--surface);border-radius:99px;font-size:.92rem;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;background:#2fc77a;box-shadow:0 0 0 0 #2fc77a88;animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px #2fc77a00}100%{box-shadow:0 0 0 0 #2fc77a00}}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.8rem,9.5vw,6.6rem);line-height:.98;letter-spacing:-.035em;margin:1.4rem 0 1.2rem;max-width:12ch}
+.hero p.lead{font-size:clamp(1.1rem,2.2vw,1.35rem);max-width:34rem;color:var(--muted);margin:0 0 2rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);transition:transform .2s}
+.btn.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{transform:translateY(-2px)}
+.stats{display:flex;gap:clamp(1.5rem,5vw,3.5rem);flex-wrap:wrap;margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid var(--line)}
+.stats b{display:block;font-family:var(--display);font-size:2.2rem;line-height:1.1}
+.stats span{color:var(--muted);font-size:.95rem}
+
+section{padding:clamp(3rem,7vw,5.5rem) 0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4.5vw,3rem);letter-spacing:-.02em;line-height:1.1;margin:0 0 2rem}
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,4rem)}
+@media(max-width:780px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 1rem;max-width:36rem}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem}
+.chip{padding:.4rem .85rem;border:1px solid var(--line);background:var(--surface);border-radius:99px;font-size:.93rem;font-weight:500}
+.skills h3{font-family:var(--display);font-size:1.05rem;margin:1.3rem 0 .6rem}
+.skills h3:first-child{margin-top:0}
+
+/* project index – the memorable element */
+.proj{border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj button.row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:4.5rem 1fr auto;align-items:center;gap:1rem;padding:1.5rem .4rem;transition:padding .25s,background .25s}
+.proj button.row:hover{padding-left:1.1rem;background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.proj button.row:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.yr{color:var(--muted);font-variant-numeric:tabular-nums}
+.pt{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,3.6vw,2.2rem);letter-spacing:-.02em;line-height:1.15}
+.pt small{display:block;font-family:var(--body);font-weight:400;font-size:.95rem;color:var(--muted);letter-spacing:0;margin-top:.2rem}
+.plus{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:1.4rem;transition:transform .3s,background .3s}
+.proj[data-open="true"] .plus{transform:rotate(45deg);background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.detail{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.proj[data-open="true"] .detail{grid-template-rows:1fr}
+.detail>div{overflow:hidden}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:.4rem .4rem 2rem 5.5rem}
+@media(max-width:780px){.panel{grid-template-columns:1fr;padding-left:.4rem}}
+.panel p{margin:0 0 .9rem}
+.result{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--warm);border-radius:12px;padding:1.1rem 1.3rem}
+.result b{font-family:var(--display);font-size:1.5rem;display:block;line-height:1.2}
+.panel a.link{font-weight:600;color:var(--accent)}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 2.2rem 1.2rem}
+.tl li::before{content:"";position:absolute;left:-2.1rem;top:.55rem;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.tl h3{font-family:var(--display);margin:0;font-size:1.25rem}
+.tl .when{color:var(--muted);font-size:.93rem}
+.tl p{margin:.4rem 0 0;max-width:38rem}
+
+.contact{background:var(--ink);color:var(--bg);border-radius:28px;padding:clamp(2rem,6vw,4.5rem);margin-bottom:3rem}
+.contact h2{margin-bottom:1rem;max-width:14ch}
+.contact p{max-width:30rem;opacity:.8;margin:0 0 1.8rem}
+.contact .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.contact .btn.alt{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 40%,transparent)}
+footer{padding:0 0 2rem;color:var(--muted);font-size:.9rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Lay Hok Houn</a>
+  <nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  <button id="theme" aria-label="Switch light or dark theme">◐</button></nav>
+</div></header>
+
+<main id="top">
+<div class="hero" id="hero"><div class="wrap">
+  <span class="status"><i class="dot"></i>Open to IT opportunities</span>
+  <h1>I keep campus technology secure and running.</h1>
+  <p class="lead">Hi, I’m Lay Hok Houn, an Information Technology graduate from BYU–Hawaii. I manage security systems, lead student teams, and build reliable websites.</p>
+  <div class="btns"><a class="btn main" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+  <div class="stats">
+    <div><b data-n="800" data-s="+">0</b><span>Security cameras monitored</span></div>
+    <div><b data-n="3.82" data-d="2">0</b><span>GPA out of 4.00</span></div>
+    <div><b data-n="3" data-s=" languages">0</b><span>Khmer, English, Vietnamese</span></div>
+  </div>
+</div></div>
+
+<section id="about"><div class="wrap about">
+  <div>
+    <h2>A little about me</h2>
+    <p>I’m finishing my B.S. in Information Technology at Brigham Young University–Hawaii, with minors in Social Work and Pacific Studies. I earned a Dean’s Scholarship in Fall 2025 and I’m part of the Resident Honors Program.</p>
+    <p>At work, I fix security systems, write clear documentation, and train new teammates. Before college, I spent three years serving full time in Phnom Penh, Cambodia, where I learned to lead, teach, and communicate across cultures.</p>
+  </div>
+  <div class="skills">
+    <h3>What I do best</h3>
+    <div class="chips"><span class="chip">Troubleshooting</span><span class="chip">Team leadership</span><span class="chip">Technical writing</span><span class="chip">Training and hiring</span><span class="chip">Cross-cultural communication</span></div>
+    <h3>Tools I use</h3>
+    <div class="chips"><span class="chip">Genetec</span><span class="chip">Onity</span><span class="chip">Meraki</span><span class="chip">Brightspot</span><span class="chip">HTML/CSS</span><span class="chip">Java</span><span class="chip">Windows</span><span class="chip">Linux</span><span class="chip">Word, PowerPoint, Excel</span></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Work I’m proud of</h2>
+  <div id="list"></div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Work and education</h2>
+  <ul class="tl">
+    <li><h3>Security IT Specialist, Campus Security & Safety</h3><div class="when">September 2026 – Present</div><p>Monitor 800+ cameras, resolve camera issues, and maintain technical documentation.</p></li>
+    <li><h3>Tech Team and Front Desk Lead, Student Leadership & Service</h3><div class="when">August 2025 – September 2026</div><p>Hired, trained, and coordinated a team of four.</p></li>
+    <li><h3>Website Designer, Student Leadership & Service</h3><div class="when">July 2024 – August 2025</div><p>Kept the university website accurate and on brand.</p></li>
+    <li><h3>B.S. in Information Technology, BYU–Hawaii</h3><div class="when">2023 – 2026</div><p>GPA 3.82. Resident Honors Program and Dean’s Scholarship.</p></li>
+    <li><h3>Assistant to the Mission President, Phnom Penh Mission</h3><div class="when">May 2018 – May 2021</div><p>Supported leadership, helped plan mission-wide activities, and taught English and other lessons to 20–35 people weekly.</p></li>
+  </ul>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>Let’s work together.</h2>
+    <p>I’d love to hear about your team and what you’re building. Send me a message and I’ll reply within two days.</p>
+    <div class="btns"><a class="btn" href="mailto:layhok.houn@gmail.com">Email me</a><a class="btn alt" href="https://www.linkedin.com/in/layhok-houn" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+  <footer>© <span id="y"></span> Lay Hok Houn</footer>
+</div></section>
+</main>
+
+<script>
+const PROJECTS=[
+ {year:"Solo",title:"Lingua: learn English free",sub:"Creator, personal project",role:"I built a free website that helps people practice English anywhere. It covers grammar, vocabulary, idioms, spelling, and speaking.",problem:"Learners need quick daily practice, so Lingua gives them quizzes, flip cards, a speaking coach that listens to their voice, and a progress page that tracks streaks and accuracy. Visitors can also send word and feature requests by email.",stack:["HTML","CSS","JavaScript","GitHub Pages"],result:"5 practice modes",resultText:"Free to use, with all content built in.",link:"https://layhokk.github.io/learningenglish/"},
+ {year:"Now",title:"Campus security systems",sub:"Security IT Specialist, Campus Security & Safety",role:"I monitor more than 800 security cameras and manage the Genetec, Onity, and Meraki systems behind them.",problem:"Cameras go offline or lose image quality, so I fix 15–20 issues a month and write 12 pages of documentation and updated camera maps to help train new employees.",stack:["Genetec","Onity","Meraki"],result:"15–20 fixes a month",resultText:"Keeps surveillance coverage reliable across campus."},
+ {year:"2025",title:"Tech team and front desk",sub:"Lead, Student Leadership & Service",role:"I led a team of four, ran biweekly staff meetings, and handled about three equipment reservations a day for student clubs.",problem:"The team needed better hiring and scheduling, so I interviewed about 20 applicants, hired four, and trained them on equipment and daily operations.",stack:["Hiring","Scheduling","Training"],result:"20 interviews, 4 hires",resultText:"Built a team that prepares equipment on time."},
+ {year:"2024",title:"University website content",sub:"Website Designer, Student Leadership & Service",role:"I updated links, images, and documents in Brightspot every semester and applied BYU–Hawaii branding guidelines.",problem:"Outdated content hurts trust, so I ran regular reviews and quality checks to keep every page accurate.",stack:["Brightspot","HTML/CSS","Branding"],result:"100% accuracy",resultText:"Content stayed correct through each academic semester."}
+];
+const list=document.getElementById("list");
+PROJECTS.forEach((p,i)=>{
+  const d=document.createElement("div");d.className="proj";d.dataset.open="false";
+  d.innerHTML=`<button class="row" aria-expanded="false" aria-controls="d${i}">
+    <span class="yr">${p.year}</span><span class="pt">${p.title}<small>${p.sub}</small></span><span class="plus" aria-hidden="true">+</span></button>
+    <div class="detail" id="d${i}"><div><div class="panel">
+      <div><p>${p.role}</p><p>${p.problem}</p><div class="chips">${p.stack.map(s=>`<span class="chip">${s}</span>`).join("")}</div>${p.link?`<p style="margin-top:1rem"><a class="link" href="${p.link}" target="_blank" rel="noopener">Open the live site</a></p>`:""}</div>
+      <div class="result"><b>${p.result}</b>${p.resultText}</div></div></div></div>`;
+  const b=d.querySelector("button");
+  b.addEventListener("click",()=>{const o=d.dataset.open!=="true";d.dataset.open=o;b.setAttribute("aria-expanded",o)});
+  list.appendChild(d);
+});
+document.getElementById("list").firstChild.dataset.open="true";
+document.querySelector(".proj .row").setAttribute("aria-expanded","true");
+document.getElementById("y").textContent=new Date().getFullYear();
+// hero glow follows pointer
+const hero=document.getElementById("hero");
+hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();
+  hero.style.setProperty("--mx",(e.clientX-r.left)+"px");hero.style.setProperty("--my",(e.clientY-r.top)+"px")});
+// count-up stats
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
+  document.querySelectorAll("[data-n]").forEach(el=>{const t=+el.dataset.n,d=+(el.dataset.d||0),s=el.dataset.s||"",t0=performance.now();
+    const f=now=>{const k=Math.min((now-t0)/1200,1),e=1-Math.pow(1-k,3);el.textContent=(t*e).toFixed(d)+s;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+}else document.querySelectorAll("[data-n]").forEach(el=>el.textContent=(+el.dataset.n).toFixed(+(el.dataset.d||0))+(el.dataset.s||""));
+// theme toggle
+document.getElementById("theme").addEventListener("click",()=>{
+  const r=document.documentElement,dark=matchMedia("(prefers-color-scheme:dark)").matches;
+  const cur=r.dataset.theme||(dark?"dark":"light");r.dataset.theme=cur==="dark"?"light":"dark"});
+</script>
+</body>
+</html>
