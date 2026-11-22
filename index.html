@@ -103,13 +103,64 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4.5vw,3rem)
 .contact .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
 .contact .btn.alt{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 40%,transparent)}
 footer{padding:0 0 2rem;color:var(--muted);font-size:.9rem}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--warm));z-index:40}
+.role{font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,3vw,1.7rem);margin:0 0 1.6rem;min-height:1.6em}
+.role span{color:var(--accent)}
+#type::after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:3px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero::before{animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-3%,4%) scale(1.08)}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+.graphs{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(2rem,5vw,4rem)}
+@media(max-width:780px){.graphs{grid-template-columns:1fr}}
+.graphs h3{font-family:var(--display);margin:0 0 1.3rem;font-size:1.2rem}
+.bar{margin:0 0 1.2rem}
+.bar .l{display:flex;justify-content:space-between;font-weight:500;font-size:.95rem;margin-bottom:.4rem}
+.bar .l span:last-child{color:var(--muted);font-variant-numeric:tabular-nums}
+.track{height:11px;border-radius:99px;background:var(--line);overflow:hidden}
+.fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--warm));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.note{color:var(--muted);font-size:.88rem;margin-top:1.4rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.2rem}
+.kpi,.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.4rem}
+.kpi{border-top:4px solid var(--accent)}.kpi:nth-child(even){border-top-color:var(--warm)}
+.kpi b{display:block;font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);line-height:1.1}
+.kpi span{color:var(--muted);font-size:.95rem}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:780px){.charts{grid-template-columns:1fr}}
+.card h3{font-family:var(--display);margin:0 0 1rem;font-size:1.15rem}
+.donut{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.donut p{margin:0;max-width:14rem;color:var(--muted)}
+.grow,.gax{display:grid;grid-template-columns:8.5rem 1fr;gap:.8rem;align-items:center}
+.grow{margin-bottom:.7rem;font-size:.9rem;line-height:1.3}
+@media(max-width:600px){.grow,.gax{grid-template-columns:6.2rem 1fr;font-size:.8rem}}
+.gt{position:relative;height:22px;background:color-mix(in srgb,var(--line) 55%,transparent);border-radius:8px}
+.gb{position:absolute;top:0;height:100%;border-radius:8px;width:0;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.gax div{position:relative;height:1.3rem;font-size:.8rem;color:var(--muted)}
+.gax i{position:absolute;font-style:normal;transform:translateX(-50%)}
+.flow{display:block;width:100%;max-width:720px;margin:0 auto;height:auto}
+.flow rect{stroke-width:1.2}
+.flow .a rect{fill:var(--surface);stroke:var(--line)}
+.flow .b rect{fill:color-mix(in srgb,var(--accent) 13%,var(--surface));stroke:color-mix(in srgb,var(--accent) 50%,var(--line))}
+.flow .c rect{fill:color-mix(in srgb,var(--warm) 18%,var(--surface));stroke:color-mix(in srgb,var(--warm) 60%,var(--line))}
+.flow .t{font-family:var(--display);font-weight:700;font-size:15px;fill:var(--ink);text-anchor:middle}
+.flow .s{font-size:11.5px;fill:var(--muted);text-anchor:middle}
+.flow .e{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s ease}
+.flow .ah{fill:var(--muted);opacity:0;transition:opacity .5s ease 1s}
+.flow g.node{opacity:0;transition:opacity .6s ease}
+.rv.in .flow .e{stroke-dashoffset:0}
+.rv.in .flow .ah{opacity:1}
+.rv.in .flow g.node{opacity:1}
+.rv.in .flow g.l1{transition-delay:0s}.rv.in .flow g.l2{transition-delay:.3s}.rv.in .flow g.l3{transition-delay:.6s}.rv.in .flow g.l4{transition-delay:.9s}.rv.in .flow g.l5{transition-delay:1.2s}
+.flowcap{max-width:36rem;color:var(--muted);margin:0 auto 1.5rem;text-align:center}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<div id="prog"></div>
 <header class="nav"><div class="wrap">
   <a class="logo" href="#top">Lay Hok Houn</a>
-  <nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  <nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#workflow">How I work</a><a href="#dashboard">Impact</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
   <button id="theme" aria-label="Switch light or dark theme">◐</button></nav>
 </div></header>
 
@@ -118,6 +169,7 @@ footer{padding:0 0 2rem;color:var(--muted);font-size:.9rem}
   <span class="status"><i class="dot"></i>Open to IT opportunities</span>
   <h1>I keep campus technology secure and running.</h1>
   <p class="lead">Hi, I’m Lay Hok Houn, an Information Technology graduate from BYU–Hawaii. I manage security systems, lead student teams, and build reliable websites.</p>
+  <p class="role">I work as a <span id="type"></span></p>
   <div class="btns"><a class="btn main" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
   <div class="stats">
     <div><b data-n="800" data-s="+">0</b><span>Security cameras monitored</span></div>
@@ -145,6 +197,62 @@ footer{padding:0 0 2rem;color:var(--muted);font-size:.9rem}
   <div id="list"></div>
 </div></section>
 
+<section id="dashboard"><div class="wrap">
+  <h2>My impact at a glance</h2>
+  <div class="kpis">
+    <div class="kpi"><b data-k="800" data-s="+">0</b><span>Security cameras monitored</span></div>
+    <div class="kpi"><b data-k="15" data-s="–20">0</b><span>Camera issues fixed each month</span></div>
+    <div class="kpi"><b data-k="12">0</b><span>Pages of documentation written</span></div>
+    <div class="kpi"><b data-k="4">0</b><span>Teammates I hired and led</span></div>
+  </div>
+  <div class="charts">
+    <div class="card"><h3>Hiring results</h3><div class="donut">
+      <svg viewBox="0 0 160 160" width="170" height="170" role="img" aria-label="20 percent of applicants hired"><circle cx="80" cy="80" r="54" fill="none" stroke="var(--line)" stroke-width="18"/><circle id="arc" cx="80" cy="80" r="54" fill="none" stroke="var(--accent)" stroke-width="18" stroke-linecap="round" stroke-dasharray="0 339.3" transform="rotate(-90 80 80)" style="transition:stroke-dasharray 1.4s ease"/><text x="80" y="82" text-anchor="middle" font-size="28" font-weight="800" fill="currentColor" style="font-family:var(--display)">20%</text><text x="80" y="102" text-anchor="middle" font-size="10" fill="var(--muted)">hired</text></svg>
+      <p>I interviewed about 20 applicants and hired the 4 strongest for the team.</p></div></div>
+    <div class="card"><h3>Skill profile</h3><div id="radar" style="text-align:center"></div></div>
+  </div>
+  <div class="card" style="margin-top:1.2rem"><h3>My career timeline</h3><div id="gantt"></div>
+    <p class="note" style="margin-top:.8rem">Orange shows service and study. Blue shows work.</p></div>
+</div></section>
+
+<section id="workflow"><div class="wrap">
+  <h2>How I keep campus systems running</h2>
+  <p class="flowcap">From the security team to the people on campus, this is how my daily work flows.</p>
+  <svg class="flow" viewBox="0 0 560 540" role="img" aria-label="Flow chart: Campus Security and Safety leads to me, the Security IT Specialist. My four tasks are monitoring cameras, fixing issues, writing guides and training teammates. They lead to reliable coverage and easier onboarding, which together make a safer campus.">
+    <g>
+      <path class="e" pathLength="1" d="M280 64 V108"/>
+      <path class="e" pathLength="1" d="M280 164 V194 H74.5 V223"/>
+      <path class="e" pathLength="1" d="M280 164 V194 H211.5 V223"/>
+      <path class="e" pathLength="1" d="M280 164 V194 H348.5 V223"/>
+      <path class="e" pathLength="1" d="M280 164 V194 H485.5 V223"/>
+      <path class="e" pathLength="1" d="M74.5 289 V348"/>
+      <path class="e" pathLength="1" d="M211.5 289 V348"/>
+      <path class="e" pathLength="1" d="M348.5 289 V348"/>
+      <path class="e" pathLength="1" d="M485.5 289 V348"/>
+      <path class="e" pathLength="1" d="M143 414 V442 H280 V468"/>
+      <path class="e" pathLength="1" d="M417 414 V442 H280 V468"/>
+    </g>
+    <g class="ah"><polygon points="275,104 285,104 280,111"/><polygon points="69.5,219 79.5,219 74.5,226"/><polygon points="206.5,219 216.5,219 211.5,226"/><polygon points="343.5,219 353.5,219 348.5,226"/><polygon points="480.5,219 490.5,219 485.5,226"/><polygon points="69.5,344 79.5,344 74.5,351"/><polygon points="206.5,344 216.5,344 211.5,351"/><polygon points="343.5,344 353.5,344 348.5,351"/><polygon points="480.5,344 490.5,344 485.5,351"/><polygon points="275,464 285,464 280,471"/></g>
+    <g class="node l1 a"><rect x="170" y="10" width="220" height="54" rx="12"/><text class="t" x="280" y="34">Campus Security &amp; Safety</text><text class="s" x="280" y="52">The team I work with</text></g>
+    <g class="node l2 b"><rect x="170" y="110" width="220" height="54" rx="12"/><text class="t" x="280" y="134">Me</text><text class="s" x="280" y="152">Security IT Specialist</text></g>
+    <g class="node l3 b"><rect x="12" y="225" width="125" height="64" rx="12"/><text class="t" x="74.5" y="252">Monitor</text><text class="s" x="74.5" y="272">800+ cameras</text>
+      <rect x="149" y="225" width="125" height="64" rx="12"/><text class="t" x="211.5" y="252">Fix</text><text class="s" x="211.5" y="272">15–20 a month</text>
+      <rect x="286" y="225" width="125" height="64" rx="12"/><text class="t" x="348.5" y="252">Document</text><text class="s" x="348.5" y="272">12 pages + maps</text>
+      <rect x="423" y="225" width="125" height="64" rx="12"/><text class="t" x="485.5" y="252">Train</text><text class="s" x="485.5" y="272">New teammates</text></g>
+    <g class="node l4 c"><rect x="12" y="350" width="262" height="64" rx="12"/><text class="t" x="143" y="377">Reliable coverage</text><text class="s" x="143" y="397">Cameras stay online</text>
+      <rect x="286" y="350" width="262" height="64" rx="12"/><text class="t" x="417" y="377">Easier onboarding</text><text class="s" x="417" y="397">Clear guides for new staff</text></g>
+    <g class="node l5 a"><rect x="170" y="472" width="220" height="54" rx="12"/><text class="t" x="280" y="496">A safer campus</text><text class="s" x="280" y="514">Students, staff and visitors</text></g>
+  </svg>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>My skills in numbers</h2>
+  <div class="graphs">
+    <div><h3>Technical and work skills</h3><div id="g1"></div></div>
+    <div><h3>Languages</h3><div id="g2"></div><p class="note">Bars show how confident I feel in each skill.</p></div>
+  </div>
+</div></section>
+
 <section id="experience"><div class="wrap">
   <h2>Work and education</h2>
   <ul class="tl">
@@ -160,7 +268,7 @@ footer{padding:0 0 2rem;color:var(--muted);font-size:.9rem}
   <div class="contact">
     <h2>Let’s work together.</h2>
     <p>I’d love to hear about your team and what you’re building. Send me a message and I’ll reply within two days.</p>
-    <div class="btns"><a class="btn" href="mailto:layhok.houn@gmail.com">Email me</a><a class="btn alt" href="https://www.linkedin.com/in/layhok-houn" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="btns"><a class="btn" href="mailto:layhok.houn@gmail.com">Email me</a><a class="btn alt" href="https://www.linkedin.com/in/layhok-houn" target="_blank" rel="noopener">LinkedIn</a><a class="btn alt" href="Lay_Hok_Houn_Resume.pdf" download>Download CV</a></div>
   </div>
   <footer>© <span id="y"></span> Lay Hok Houn</footer>
 </div></section>
@@ -197,6 +305,37 @@ if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
   document.querySelectorAll("[data-n]").forEach(el=>{const t=+el.dataset.n,d=+(el.dataset.d||0),s=el.dataset.s||"",t0=performance.now();
     const f=now=>{const k=Math.min((now-t0)/1200,1),e=1-Math.pow(1-k,3);el.textContent=(t*e).toFixed(d)+s;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
 }else document.querySelectorAll("[data-n]").forEach(el=>el.textContent=(+el.dataset.n).toFixed(+(el.dataset.d||0))+(el.dataset.s||""));
+// skill graphs
+const bars=(id,a)=>{document.getElementById(id).innerHTML=a.map(([n,v])=>`<div class="bar"><div class="l"><span>${n}</span><span>${v}%</span></div><div class="track"><div class="fill" data-w="${v}"></div></div></div>`).join("")};
+bars("g1",[["Troubleshooting",90],["Team leadership",85],["Technical documentation",85],["Security systems (Genetec, Meraki)",80],["Web content (Brightspot, HTML/CSS)",75],["Java",55]]);
+bars("g2",[["Khmer (native)",100],["English (fluent)",90],["Vietnamese (basic)",35]]);
+// reveal on scroll and fill bars
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");e.target.querySelectorAll(".fill").forEach(f=>f.style.width=f.dataset.w+"%");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll("section .wrap").forEach(el=>{el.classList.add("rv");io.observe(el)});
+// dashboard charts
+const L=["Troubleshooting","Leadership","Documentation","Security","Web","Java"],V=[90,85,85,80,75,55],cx=130,cy=130,R=82;
+const pt=(i,v)=>{const a=-Math.PI/2+i*Math.PI/3;return [cx+R*v/100*Math.cos(a),cy+R*v/100*Math.sin(a)]};
+let rs='<svg viewBox="0 0 260 260" style="width:100%;max-width:300px" role="img" aria-label="Radar chart of skills">';
+[25,50,75,100].forEach(g=>rs+=`<polygon points="${L.map((_,i)=>pt(i,g).join(",")).join(" ")}" fill="none" stroke="var(--line)"/>`);
+L.forEach((n,i)=>{const [x,y]=pt(i,100),[lx,ly]=pt(i,120);rs+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--line)"/><text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="9.5" fill="var(--muted)">${n}</text>`});
+rs+=`<polygon id="rad" points="${V.map((v,i)=>pt(i,v).join(",")).join(" ")}" fill="var(--accent)" fill-opacity=".28" stroke="var(--accent)" stroke-width="2" style="transform-origin:130px 130px;transform:scale(0);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)"/></svg>`;
+document.getElementById("radar").innerHTML=rs;
+const G=[["Mission service",2018.35,2021.35,"var(--warm)"],["BYU–Hawaii degree",2023,2026.6,"var(--warm)"],["Website Designer",2024.5,2025.6,"var(--accent)"],["Tech and front desk lead",2025.6,2026.7,"var(--accent)"],["Security IT Specialist",2026.7,2026.85,"var(--accent)"]],pc=y=>(y-2018)/9*100;
+document.getElementById("gantt").innerHTML=G.map(([n,s,e,c])=>`<div class="grow"><span>${n}</span><div class="gt"><div class="gb" data-w="${Math.max(pc(e)-pc(s),1.6)}" style="left:${pc(s)}%;background:${c}"></div></div></div>`).join("")+`<div class="gax"><span></span><div>${[2018,2020,2022,2024,2026].map(y=>`<i style="left:${pc(y)}%">${y}</i>`).join("")}</div></div>`;
+const dio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;dio.disconnect();
+  e.target.querySelectorAll("[data-k]").forEach(el=>{const t=+el.dataset.k,s=el.dataset.s||"",t0=performance.now();const f=n=>{const k=Math.min((n-t0)/1200,1);el.textContent=Math.round(t*(1-Math.pow(1-k,3)))+s;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+  document.getElementById("arc").setAttribute("stroke-dasharray","67.9 271.4");
+  document.getElementById("rad").style.transform="scale(1)";
+  e.target.querySelectorAll(".gb").forEach(b=>b.style.width=b.dataset.w+"%")}),{threshold:.12});
+dio.observe(document.querySelector("#dashboard .wrap"));
+// scroll progress
+const pg=document.getElementById("prog");
+addEventListener("scroll",()=>{pg.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+"%"},{passive:true});
+// typing roles
+const roles=["Security IT Specialist","Tech team leader","Website designer","Lifelong learner"],ty=document.getElementById("type");
+if(matchMedia("(prefers-reduced-motion:reduce)").matches){ty.textContent=roles[0]}else{let r=0,c=0,del=false;
+  const tick=()=>{const w=roles[r];c+=del?-1:1;ty.textContent=w.slice(0,c);let t=del?35:70;
+    if(!del&&c===w.length){del=true;t=1600}else if(del&&c===0){del=false;r=(r+1)%roles.length;t=350}setTimeout(tick,t)};tick()}
 // theme toggle
 document.getElementById("theme").addEventListener("click",()=>{
   const r=document.documentElement,dark=matchMedia("(prefers-color-scheme:dark)").matches;
